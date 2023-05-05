@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style_1.css">
+</head>
+<body>
+    <section class="tabpanel">
+        <div class="modal" >
+            <img src="img/1.jpg" alt="" class="image" >
+            <span class="btn">X</span>
+        </div>
+        <ul class="tabs">
+           <li class="list active" data-filter="all">ALL</li>
+           <li class="list" data-filter="GRAPHICS">GRAPHICS DESIGN</li>
+           <li class="list" data-filter="web">WEBSITE</li>
+           <li class="list" data-filter="app">MOBILE APP DESIGN</li>
+           <li class="list" data-filter="model">3D MODELLING</li>
+           <li class="list" data-filter="animate">2D ANIMATION</li>
+        </ul>
+         <div class="gallery">
+            <div class="itembox" data-item="GRAPHICS" ><img class="item" src="img/1.jpg" alt=""></div>
+            <div class="itembox" data-item="app"><img  class="item" src="img/2.jpg" alt=""></div>
+            <div class="itembox" data-item="web"><img class="item" src="img/3.jpg" alt=""></div>
+            <div class="itembox" data-item="model"><img class="item" src="img/4.jpg" alt=""></div>
+            <div class="itembox" data-item="animate"><img  class="item" src="img/5.jpg" alt=""></div>
+            <div class="itembox" data-item="GRAPHICS"><img class="item" src="img/6.jpg" alt=""></div>
+            <div class="itembox" data-item="app"><img class="item" src="img/7.jpg" alt=""></div>
+            <div class="itembox" data-item="web"><img class="item" src="img/8.jpg" alt=""></div>
+            <div class="itembox" data-item="model"><img class="item" src="img/9.jpg" alt=""></div>
+            <div class="itembox" data-item="animate"><img class="item" src="img/10.jpg" alt=""></div>
+            <div class="itembox" data-item="GRAPHICS"><img class="item"  src="img/11.jpg" alt=""></div>
+            <div class="itembox" data-item="app"><img class="item" src="img/12.jpg" alt=""></div>
+            <div class="itembox"data-item="web"><img class="item" src="img/13.jpg" alt=""></div>
+            <div class="itembox" data-item="model"><img class="item" src="img/14.jpg" alt=""></div>
+            <div class="itembox" data-item="animate"><img class="item" src="img/15.jpg" alt=""></div>
+            <div class="itembox" data-item="GRAPHICS"><img class="item" src="img/16.jpg" alt=""></div>
+            <div class="itembox" data-item="app"><img class="item" src="img/17.jpg" alt=""></div>
+            <div class="itembox" data-item="web"><img class="item" src="img/18.jpg" alt=""></div>
+            <div class="itembox" data-item="model"><img class="item" src="img/19.jpg" alt=""></div>
+            <div class="itembox" data-item="animate"><img class="item" src="img/20.webp" alt=""></div>
+        </div>
+    </section>
+    <script>
+        let list = document.querySelectorAll('.list') ;//talking all the tabs with class list
+        let item = document.querySelectorAll('.itembox');//talking all the img with class itembox
+        console.log('list');//to see the length
+        for(let i=0; i<list.length; i++){
+            list[i].addEventListener('click',function(){
+                for(let j=0;j<list.length;j++){
+                    list[j].classList.remove('active');
+                }
+                this.classList.add('active');
+                let dataFilter=this.getAttribute('data-filter');
+                console.log(dataFilter);
+                for(let k=0;k<item.length;k++){
+                    item[k].classList.remove('active');
+                    item[k].classList.add('hide');
+
+                    if(item[k].getAttribute('data-item')== dataFilter || dataFilter== 'all'){
+                        item[k].classList.remove('hide');
+                        item[k].classList.add('active');
+
+                    }
+
+                }
+            })     
+           }
+           let modal=document.querySelector('.modal');
+           let close=document.querySelector('.btn');
+           let image=document.getElementById('.image')
+           
+           for(let i=0; i<item.length;i++){
+            item[i].addEventListener('click',function(e){
+                modal.style.visibility="visible";
+                console.log(e.target);
+                 if(e.target.classList.contains("item"))
+                 {
+                       const src = e.target.getAttribute("src");
+                         console.log(src);
+                         document.querySelector(".image").src =src;
+                 }
+                
+
+            });
+            close.addEventListener('click',function(){
+                modal.style.visibility="hidden"; 
+            })
+            
+           }
+    </script>
+</body>
+</html>

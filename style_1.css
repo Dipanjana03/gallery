@@ -1,0 +1,125 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.tabpanel{
+    padding: 20px;
+    width: 100%;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 40px auto;
+} 
+.tabpanel ul{
+   
+    display:flex;
+   
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px ;
+} 
+.tabpanel ul li{
+    list-style: none;
+    background-color: rgb(154, 147, 147);
+    padding: 12px 20px;
+    margin: 5px;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+.tabpanel ul .active{
+    background-color: rgb(14, 161, 214);
+    color: azure;
+}
+.gallery{
+   position: relative;
+   height:auto;
+   width: 90%;
+   margin: auto;
+   padding: 30px 0;
+   display: grid;
+   grid-template-columns: auto auto auto auto;
+   grid-template-rows: auto auto auto auto auto;
+   gap: 15px;
+   grid-auto-flow: dense;
+}
+.gallery .itembox img{
+    object-fit: cover;
+    width:100%;
+    height: 100%;
+}
+.gallery .itembox{
+    position: relative;
+    height: 100%;
+    width:100%;
+    overflow: hidden;
+
+}
+ .hide{
+    display: none;
+    
+}
+.gallery .itembox:first-child{
+    grid-column-start: span 2;
+    grid-row-start: span 2;
+}
+.gallery .itembox:nth-child(2n+3){
+    grid-column-start: span 2;
+    grid-row-start: span 2;
+}
+.gallery .itembox:nth-child(4n+5){
+    grid-column-start: span 2;
+    grid-row-start: span 1;
+}
+.gallery .itembox:nth-child(6n+7){
+    grid-column-start: span 2;
+    grid-row-start: span 1;
+}
+.gallery .itembox:nth-child(8n+9){
+    grid-column-start: span 1;
+    grid-row-start: span 2;
+}
+.modal{
+    width:100%;
+    height:100vh;
+    background: rgba(48, 40, 40, 0.863);
+    position: fixed;
+    top:0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    visibility: hidden;
+}
+
+.modal .image{
+    width:600px;
+    height: 600px;
+    margin: auto;
+    object-fit: cover;
+}
+.modal span{
+    position: absolute;
+    top:5%;
+    right: 5%;
+    font-size: 30px;
+    color: #f8f3f3;
+    cursor: pointer;
+}
+
+
+
+
+
+/* ------------------------------------media-------------------------------------------------- */
+@media only screen and (max-width:992 ) {
+    .gallery{
+        display:block;
+    }
+    .gallery .
+    
+}
